@@ -1,31 +1,45 @@
 package com.daniel.dream.processor;
 
+import com.daniel.dream.processor.collector.ClassIndexCollector;
+import com.daniel.dream.index.IndexManager;
+
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
-import javax.tools.Diagnostic;
+import java.io.IOException;
+import java.util.Map;
 import java.util.Set;
 
-@SupportedAnnotationTypes("*")
+@SupportedAnnotationTypes("com.daniel.dream.annotation.*")
 public class AnnotationProcessor extends AbstractProcessor {
+
+    private static final String ANNOTATIONS_PACKAGE = "com.daniel.dream.annotation";
+
+    private final ClassIndexCollector collector = new ClassIndexCollector();
 
     @Override
     public SourceVersion getSupportedSourceVersion() {
         return SourceVersion.latestSupported();
     }
 
-    private Messager messager;
-
-    @Override
-    public synchronized void init(ProcessingEnvironment processingEnv) {
-        super.init(processingEnv);
-        messager = processingEnv.getMessager();
-        messager.printMessage(Diagnostic.Kind.NOTE, ">>> MeuProcessor inicializado");
-    }
-
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-        messager.printMessage(Diagnostic.Kind.NOTE, ">>> MeuProcessor rodou no process()");
-        return false;
+
+        if (roundEnv.processingOver()) {
+
+            Map<String, Set<String>> collected = collector.getCollected();
+
+            try {
+                IndexManager.write(collected, processingEnv.getFiler());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            return true;
+        }
+
+        collector.collect(annotations, roundEnv, ANNOTATIONS_PACKAGE);
+
+        return true;
     }
 }

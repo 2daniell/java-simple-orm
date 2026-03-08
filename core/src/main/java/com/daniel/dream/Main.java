@@ -1,7 +1,11 @@
 package com.daniel.dream;
 
-import com.daniel.dream.annotation.Entity;
+import com.daniel.dream.scanner.Scanner;
+import com.daniel.dream.scanner.ScannerFactory;
 
-@Entity
 public class Main {
+
+    public static void main(String[] args) {
+
+    }
 }
