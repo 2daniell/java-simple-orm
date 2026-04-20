@@ -1,7 +1,7 @@
-package com.daniel.dream.processor;
+package com.daniel.tinyorm.processor;
 
-import com.daniel.dream.processor.collector.ClassIndexCollector;
-import com.daniel.dream.index.IndexManager;
+import com.daniel.tinyorm.processor.collector.ClassIndexCollector;
+import com.daniel.tinyorm.index.IndexManager;
 
 import javax.annotation.processing.*;
 import javax.lang.model.SourceVersion;
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
-@SupportedAnnotationTypes("com.daniel.dream.annotation.*")
+@SupportedAnnotationTypes("com.daniel.tinyorm.annotation.*")
 public class AnnotationProcessor extends AbstractProcessor {
 
     private static final String ANNOTATIONS_PACKAGE = "com.daniel.dream.annotation";

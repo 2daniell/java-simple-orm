@@ -1,6 +1,6 @@
-package com.daniel.dream.scanner;
+package com.daniel.tinyorm.scanner;
 
-import com.daniel.dream.index.IndexManager;
+import com.daniel.tinyorm.index.IndexManager;
 
 import java.lang.annotation.Annotation;
 import java.util.HashSet;

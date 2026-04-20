@@ -1,4 +1,4 @@
-package com.daniel.dream.processor.collector;
+package com.daniel.tinyorm.processor.collector;
 
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Element;

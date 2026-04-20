@@ -1,4 +1,4 @@
-package com.daniel.dream.scanner;
+package com.daniel.tinyorm.scanner;
 
 public final class ScannerFactory {
 

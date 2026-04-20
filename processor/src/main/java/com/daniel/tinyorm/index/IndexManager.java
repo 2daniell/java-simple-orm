@@ -1,4 +1,4 @@
-package com.daniel.dream.index;
+package com.daniel.tinyorm.index;
 
 import javax.annotation.processing.Filer;
 import javax.tools.StandardLocation;

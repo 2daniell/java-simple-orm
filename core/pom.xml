@@ -11,6 +11,19 @@
 
     <artifactId>dream-orm-core</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.daniel.dream</groupId>
+            <artifactId>dream-orm-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.daniel.dream</groupId>
+            <artifactId>dream-orm-processor</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
