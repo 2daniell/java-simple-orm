@@ -9,7 +9,22 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dream-orm-core</artifactId>
+    <artifactId>dream-orm</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.daniel.dream</groupId>
+            <artifactId>dream-orm-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.daniel.dream</groupId>
+            <artifactId>dream-orm-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
